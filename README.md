@@ -1,7 +1,8 @@
-# Getting Started with Create React App
+# Introduction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Homework app for Daftacademy Frontend 4 begginers course
 
+Live on [netlify](https://regal-starburst-0f330b.netlify.app/)
 ## Available Scripts
 
 In the project directory, you can run:
