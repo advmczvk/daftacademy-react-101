@@ -7,6 +7,28 @@
   pointer-events: none;
 }
 
+a img {
+  max-height: 5vh;
+  margin: 1vw;
+}
+
+.alert-button {
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  padding: .5rem 1rem;
+  background-color: rgb(72, 74, 75);
+  color: white;
+  font-size: 1rem;
+  transform: scale(1);
+  transition: transform .2s ease-in-out;
+}
+
+.alert-button:hover {
+  transform: scale(1.2);
+  transition: transform .3s ease-in-out;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
