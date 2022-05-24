@@ -44,13 +44,13 @@ export const InputForm = () => {
             setPasswordHelperText("")
         }
     }
-    
+
     const handleSubmit = useCallback(() => {
         if(readyToSubmit){
             localStorage.setItem('username', usernameInputValue);
             localStorage.setItem('password', passwordInputValue);
         }
-    }, [usernameInputValue, passwordInputValue]);
+    }, [usernameInputValue, passwordInputValue, readyToSubmit]);
 
     useEffect(() => {
         const lsData = {
@@ -61,7 +61,7 @@ export const InputForm = () => {
         if (!!lsData.username) {
             setUsernameInputValue(lsData.username);
         }
-    }, [])
+    }, [usernameInputValue, passwordInputValue, readyToSubmit])
 
     return <>
         <div style={{display: "flex", flexDirection: "column"}}>
