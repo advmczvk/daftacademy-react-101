@@ -61,7 +61,7 @@ export const InputForm = () => {
         if (!!lsData.username) {
             setUsernameInputValue(lsData.username);
         }
-    }, [usernameInputValue, passwordInputValue, readyToSubmit])
+    }, [])
 
     return <>
         <div style={{display: "flex", flexDirection: "column"}}>
