@@ -4,24 +4,44 @@ import {TextField} from '@mui/material';
 export const InputForm = () => {
     const [usernameError, setUsernameError] = useState<boolean>(false);
     const [usernameInputValue, setUsernameInputValue] = useState<string>("");
+    const [usernameHelperText, setUsernameHelperText] = useState<string>("");
 
     const [passwordError, setPasswordError] = useState<boolean>(false);
     const [passwordInputValue, setPasswordInputValue] = useState<string>("");
+    const [passwordHelperText, setPasswordHelperText] = useState<string>("");
 
     const handleUsernameInput = (event: any) => {
         setUsernameInputValue(event.target.value);
-        if(event.target.value.length < 3 || event.target.value.length > 20)
+        if(event.target.value.length < 3){
             setUsernameError(true);
-        else
+            setUsernameHelperText("Username too short");
+        }
+        else if(event.target.value.length > 20){
+            setUsernameError(true);
+            setUsernameHelperText("Username too long");
+        }
+        else{
             setUsernameError(false);
+            setUsernameHelperText("");
+        }
     }
 
     const handlePasswordInput = (event: any) => {
-        setPasswordInputValue(event.target.value);
-        if(event.target.value.length < 3 || event.target.value.length > 20)
-            setUsernameError(true);
-        else
-            setUsernameError(false);
+        const password = event.target.value;
+        setPasswordInputValue(password);
+        if(password.length < 3){
+            setPasswordError(true);
+            setPasswordHelperText("Password too short!")
+        }
+        else if(password.match(/[$@#&!]+/)){
+            setPasswordError(true);
+            setPasswordHelperText("Password too weak!")
+        }
+        else{
+            setPasswordError(false);
+            setPasswordHelperText("")
+        }
+            
     }
 
     return <>
@@ -36,7 +56,8 @@ export const InputForm = () => {
                 onInput={handleUsernameInput}
                 value={usernameInputValue}
                 type="text"
-                margin="normal"/>
+                margin="normal"
+                helperText={usernameHelperText}/>
             <TextField 
                 id="password"
                 label="Password"
@@ -45,8 +66,9 @@ export const InputForm = () => {
                 required
                 onInput={handlePasswordInput}
                 value={passwordInputValue}
-                type="text"
-                margin="normal"/>
+                type="password"
+                margin="normal"
+                helperText={passwordHelperText}/>
         </div>
     </>
 }
