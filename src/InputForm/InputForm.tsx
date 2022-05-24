@@ -1,5 +1,5 @@
-import {useState} from 'react';
-import {TextField} from '@mui/material';
+import {useCallback, useState, useEffect} from 'react';
+import {TextField, Button} from '@mui/material';
 
 export const InputForm = () => {
     const [usernameError, setUsernameError] = useState<boolean>(false);
@@ -9,6 +9,8 @@ export const InputForm = () => {
     const [passwordError, setPasswordError] = useState<boolean>(false);
     const [passwordInputValue, setPasswordInputValue] = useState<string>("");
     const [passwordHelperText, setPasswordHelperText] = useState<string>("");
+
+    const readyToSubmit = !(usernameError || passwordError || !usernameInputValue || !passwordInputValue);
 
     const handleUsernameInput = (event: any) => {
         setUsernameInputValue(event.target.value);
@@ -41,8 +43,25 @@ export const InputForm = () => {
             setPasswordError(false);
             setPasswordHelperText("")
         }
-            
     }
+    
+    const handleSubmit = useCallback(() => {
+        if(readyToSubmit){
+            localStorage.setItem('username', usernameInputValue);
+            localStorage.setItem('password', passwordInputValue);
+        }
+    }, [usernameInputValue, passwordInputValue]);
+
+    useEffect(() => {
+        const lsData = {
+            username: localStorage.getItem('username'),
+            password: localStorage.getItem('password')
+        }
+
+        if (!!lsData.username) {
+            setUsernameInputValue(lsData.username);
+        }
+    }, [])
 
     return <>
         <div style={{display: "flex", flexDirection: "column"}}>
@@ -69,6 +88,7 @@ export const InputForm = () => {
                 type="password"
                 margin="normal"
                 helperText={passwordHelperText}/>
+            <Button variant="contained" disabled={!readyToSubmit} onClick={handleSubmit} >Log in</Button>
         </div>
     </>
 }
