@@ -1,15 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { InputForm } from './InputForm';
 import {createTheme, ThemeProvider} from "@mui/material"
-import { dark } from '@mui/material/styles/createPalette';
 
 function App() {
-  const handleShowAlert = () => {
-    alert("Hello react!");
-  }
-
   const theme = createTheme({
     palette: {
       mode: 'dark'
