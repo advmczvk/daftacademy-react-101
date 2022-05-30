@@ -1,0 +1,68 @@
+$main-color: #0E181C;
+$secondary-color: #282E31;
+$accent-color: #E8AC3C;
+$light-color: #ffffff;
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: $light-color;
+  }
+  
+  h1 {
+      font-size: 96px;
+      font-weight: 100;
+      letter-spacing: -1.5px;
+      text-align: center;
+      width: fit-content;
+  }
+  
+  h2 {
+      font-size: 60px;
+      font-weight: 200;
+      letter-spacing: -.5px;
+      text-align: center;
+      width: fit-content;
+  }
+  
+  h3 {
+      font-size: 48px;
+      font-weight: 300;
+      letter-spacing: 0px;
+      text-align: center;
+      width: fit-content;
+  }
+  
+  h4 {
+      font-size: 34px;
+      font-weight: 300;
+      letter-spacing: .25px;
+      text-align: center;
+      width: fit-content;
+  }
+  
+  h5 {
+      font-size: 24px;
+      font-weight: 300;
+      letter-spacing: 0px;
+      text-align: center;
+      width: fit-content;
+  }
+  
+  h6 {
+      font-size: 20px;
+      font-weight: 300;
+      letter-spacing: .15px;
+      text-align: center;
+      width: fit-content;
+  }
+  
+  p {
+      font-size: 16px;
+      font-weight: 300;
+      letter-spacing: .15px;
+      text-align: center;
+      width: fit-content;
+  }

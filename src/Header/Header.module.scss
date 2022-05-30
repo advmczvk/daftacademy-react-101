@@ -1,0 +1,47 @@
+@use '../base';
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 10vh;
+    background-color: base.$main-color;
+    backdrop-filter: blur(50px);
+
+    .logo {
+        margin: 0 10vw;
+    }
+
+    nav {
+        width: 40vw;
+        margin: 0 10vw;
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            li {
+                margin: 0 3rem;
+            }
+
+            li h6::after {
+                content: '';
+                display: block;
+                width: 0px;
+                height: 2px;
+                border-radius: 2px;
+                background-color: base.$accent-color;
+                transition: width .2s, margin-top .2s;
+            }
+
+            li h6:hover::after {
+                content: '';
+                width: 100%;
+            }
+        }  
+    }
+    
+}
