@@ -1,6 +1,6 @@
 import './App.css';
 import {createTheme, ThemeProvider} from "@mui/material"
-import {Link, Routes, Route} from 'react-router-dom'
+import { Routes, Route} from 'react-router-dom'
 
 import { InputForm } from './InputForm';
 import { Home } from './Home';
@@ -24,12 +24,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <Header />
-        <div>
-          Logo
-        </div>
-        <div>
-          
-        </div>
+
         <Routes>
           <Route path={`/${paths.home}`} element={<Home />}/>
           <Route path={`/${paths.about}`} element={<div>About</div>}/>
