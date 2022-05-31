@@ -32,28 +32,34 @@ header {
 
             li {
                 margin: 0 3rem;
+
+                ::after {
+                    content: '';
+                    display: block;
+                    width: 0px;
+                    height: 2px;
+                    border-radius: 2px;
+                    background-color: base.$accent-color;
+                    transition: width .2s, margin-top .2s;
+                }
+
+                :hover::after {
+                    content: '';
+                    width: 100%;
+                }
+
+                ::after.active {
+                    margin-top: 3px;
+                }
             }
 
-            li h6::after {
-                content: '';
-                display: block;
-                width: 0px;
-                height: 2px;
-                border-radius: 2px;
-                background-color: base.$accent-color;
-                transition: width .2s, margin-top .2s;
-            }
-
-            li h6:hover::after {
-                content: '';
-                width: 100%;
-            }
         }  
     }
     
 }
 
-@media screen and (max-width: 800px) {
+
+@media screen and (max-width: 1000px) {
     header{
         .menu {
             visibility: visible;

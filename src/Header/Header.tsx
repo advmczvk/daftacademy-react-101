@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { paths } from '../App'
 import styles from './Header.module.scss';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -12,29 +12,28 @@ export const Header = () => {
     const toggleNav = () => {
         setToggleMenu(!toggleMenu);
         setNavClass( !toggleMenu ? `${styles.navOpen}` : `${styles.navClosed}`);
-
     }
 
     return <>
     <header>
-        <div className={styles.logo}>Logo</div>
-        <button className={styles.menu} onClick={toggleNav}>{ !toggleMenu ? <MenuIcon fontSize="large"/> : <CloseIcon fontSize="large"/> }</button>
+        <div className={styles.logo}><h3>Logo</h3></div>
         <nav className={navClass}>
             <ul>
                 <li>
-                    <Link className='AppLink' to={`/${paths.home}`}><h6>Home</h6></Link>
+                    <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to={`/${paths.home}`} onClick={ toggleNav }>Home</NavLink>
                 </li>
                 <li>
-                    <Link className='AppLink' to={`/${paths.about}`}><h6>About us</h6></Link>
+                    <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to={`/${paths.about}`} onClick={ toggleNav }>About</NavLink>
                 </li>
                 <li>
-                    <Link className='AppLink' to={`/${paths.contact}`}><h6>Contact</h6></Link>
+                    <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to={`/${paths.contact}`} onClick={ toggleNav }>Contact</NavLink>
                 </li>
                 <li>
-                    <Link className='AppLink' to={`/${paths.login}`}><h6>Login</h6></Link>
+                    <NavLink className={({ isActive }) => (isActive ? 'active' : 'inactive')} to={`/${paths.login}`} onClick={ toggleNav }>Login</NavLink>
                 </li>
             </ul> 
         </nav>
+        <button className={styles.menu} onClick={toggleNav}>{ !toggleMenu ? <MenuIcon fontSize="large"/> : <CloseIcon fontSize="large"/> }</button>
     </header>
     </>
         

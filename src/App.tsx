@@ -7,7 +7,7 @@ import { Home } from './Home';
 import { Header } from './Header';
 
 export const paths = {
-  home: 'home',
+  home: '',
   about: 'about',
   contact: 'contact',
   login: 'login'
@@ -26,9 +26,9 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path={`/${paths.home}`} element={<Home />}/>
-          <Route path={`/${paths.about}`} element={<div>About</div>}/>
-          <Route path={`/${paths.contact}`} element={<div>Contact</div>}/>
+          <Route index element={<Home />}/>
+          <Route path={`/${paths.about}`} element={<h3>About</h3>}/>
+          <Route path={`/${paths.contact}`} element={<h3>Contact</h3>}/>
           <Route path={`/${paths.login}`} element={<InputForm />}/>
 
           <Route path='*' element={<div>404</div>}/>
