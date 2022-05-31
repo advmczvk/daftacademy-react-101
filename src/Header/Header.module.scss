@@ -1,0 +1,102 @@
+@use '../base';
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 10vh;
+    background-color: base.$main-color;
+    backdrop-filter: blur(50px);
+
+    .logo {
+        margin: 0 10vw;
+    }
+
+    .menu {
+        visibility: hidden;
+        position: absolute;
+        right: 5vw;
+    }
+
+    nav {
+        width: 40vw;
+        margin: 0 10vw;
+
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            li {
+                margin: 0 3rem;
+
+                ::after {
+                    content: '';
+                    display: block;
+                    width: 0px;
+                    height: 2px;
+                    border-radius: 2px;
+                    background-color: base.$accent-color;
+                    transition: width .2s, margin-top .2s;
+                }
+
+                :hover::after {
+                    content: '';
+                    width: 100%;
+                }
+
+                ::after.active {
+                    margin-top: 3px;
+                }
+            }
+
+        }  
+    }
+    
+}
+
+
+@media screen and (max-width: 1000px) {
+    header{
+        .menu {
+            visibility: visible;
+            z-index: 10000;
+            transition: .3s ease-in-out;
+            background-color: transparent;
+        }
+
+        nav {
+            background-color: base.$secondary-color;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+            
+            ul {
+               flex-direction: column; 
+               height: 100%;
+               align-items: center;
+               justify-content: space-evenly;
+            }
+            
+        }
+
+        .navClosed {
+            transform: translateX(100vw);
+            transition: .3s ease-in-out;
+
+        }
+
+        .navOpen {
+            transform: translateX(0);
+            transition: .3s ease-in-out;
+            z-index: 9999;
+        }
+    }
+    
+}
